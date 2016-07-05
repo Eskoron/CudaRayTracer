@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Math">
+      <UniqueIdentifier>{a7501fc8-dd62-44a5-a44c-0ac5950cef52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer">
+      <UniqueIdentifier>{badacd10-61a7-41cf-a065-9532483fd861}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mesh">
+      <UniqueIdentifier>{ecd429b1-8688-418e-a443-1dd436284db7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Geometry">
+      <UniqueIdentifier>{e8c215bf-469f-4b0d-af24-f52c49b25e0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\Cameras">
+      <UniqueIdentifier>{ada4aad9-8cd1-4e84-89cb-09c1e74cb50c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImageSaver">
+      <UniqueIdentifier>{3fe8530f-fcdd-44b7-8e3e-5a51af016666}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AccelerationStructures">
+      <UniqueIdentifier>{b80c27ab-17a3-426f-a80d-229d42ee02e4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Vector3.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="CudaDefines.h" />
+    <ClInclude Include="Rotator.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix44.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="RMath.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Ray.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="PerspectiveCamera.h">
+      <Filter>Renderer\Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>ImageSaver</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="BoundingBox.h">
+      <Filter>AccelerationStructures</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="PerspectiveCamera.cu">
+      <Filter>Renderer\Cameras</Filter>
+    </CudaCompile>
+    <CudaCompile Include="Renderer.cu">
+      <Filter>Renderer</Filter>
+    </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Image.cpp">
+      <Filter>ImageSaver</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="test.tga" />
+  </ItemGroup>
+</Project>
