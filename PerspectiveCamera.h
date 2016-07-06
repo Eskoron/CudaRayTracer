@@ -11,12 +11,12 @@ struct PerspectiveCamera{
 	float Height;
 	float Width;
 	float PovAngle;
-	float Scale = RMath::Tan(RMath::DegToRad(PovAngle * 0.5));
+	float Scale = RMath::Tan(RMath::DegToRad(PovAngle * 0.5f));
 	float AspectRatioScale = ((float)Width) / ((float)Height) * Scale;
 
 
 	forceinline PerspectiveCamera(Vector3 InPosition, Rotator InRotation, int InWidth, int InHeight, float InPovAngle) :Position(InPosition), Rotation(InRotation), Height(InHeight), Width(InWidth), PovAngle(InPovAngle){
-		Scale = RMath::Tan(RMath::DegToRad(PovAngle * 0.5));
+		Scale = RMath::Tan(RMath::DegToRad(PovAngle * 0.5f));
 		AspectRatioScale = ((float)Width) / ((float)Height) * Scale;
 	}
 
@@ -24,14 +24,14 @@ struct PerspectiveCamera{
 
 };
 
-forceinline kernel void GetRaysKernel(const Vector3& position, const Rotator& Rotation, const float Width, const float Height, const float AspectRatioScale, const  float Scale, Ray* D_Ray);
+kernel void GetRaysKernel(const Vector3& position, const Rotator& Rotation, const float Width, const float Height, const float AspectRatioScale, const  float Scale, Ray* D_Ray);
 
 forceinline void PerspectiveCamera::GetRays(Ray* D_Rays) const{
 	//Reserve cuda memory
 	const int blockSizeX = 32;
 	const int blockSizeY = 32;
 	const dim3 blockSize(blockSizeX, blockSizeY, 1);
-	const dim3 gridSize(Width / blockSizeX + 1, Height / blockSizeY + 1, 1);
-
-	//GetRaysKernel <<< gridSize, blockSize >>>(Position,Rotation, Width, Height, AspectRatioScale, Scale, D_Rays);
+	const dim3 gridSize((uint)(Width / blockSizeX + 1),(uint) (Height / blockSizeY + 1), 1);
+	GetRaysKernel << < gridSize, blockSize >> >(Position, Rotation, Width, Height, AspectRatioScale, Scale, D_Rays);
 };
+

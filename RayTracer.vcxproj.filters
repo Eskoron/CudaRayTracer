@@ -40,9 +40,6 @@
     <ClInclude Include="Ray.h">
       <Filter>Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="PerspectiveCamera.h">
-      <Filter>Renderer\Cameras</Filter>
-    </ClInclude>
     <ClInclude Include="Image.h">
       <Filter>ImageSaver</Filter>
     </ClInclude>
@@ -58,6 +55,9 @@
     <ClInclude Include="BoundingBox.h">
       <Filter>AccelerationStructures</Filter>
     </ClInclude>
+    <ClInclude Include="PerspectiveCamera.h">
+      <Filter>Renderer\Cameras</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CudaCompile Include="PerspectiveCamera.cu">
@@ -66,12 +66,12 @@
     <CudaCompile Include="Renderer.cu">
       <Filter>Renderer</Filter>
     </CudaCompile>
+    <CudaCompile Include="kernel.cu" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Image.cpp">
       <Filter>ImageSaver</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="test.tga" />
